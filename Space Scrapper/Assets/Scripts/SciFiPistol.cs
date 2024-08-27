@@ -45,7 +45,7 @@ public class SciFiPistol : MonoBehaviour
     {
         bool hasHit = Physics.Raycast(shootSource.position, shootSource.forward, out RaycastHit hit, shootingDistance, layerMask);
         if(hasHit)
-        {
+        {   //need to be fixed to use event and not "SendMessege"
             hit.transform.gameObject.SendMessage("BreakPieces", SendMessageOptions.DontRequireReceiver);
         }
     }
