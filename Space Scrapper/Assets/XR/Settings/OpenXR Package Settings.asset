@@ -180,17 +180,16 @@ MonoBehaviour:
   m_Name: Standalone
   m_EditorClassIdentifier: 
   features:
-  - {fileID: -5311398349111277940}
-  - {fileID: 2178796753979751704}
-  - {fileID: -8222242645453710649}
   - {fileID: 76399506540568192}
   - {fileID: -7088294492438724611}
   - {fileID: -8240122448292182002}
+  - {fileID: 2178796753979751704}
   - {fileID: 3672742961732493073}
   - {fileID: 8291342000735513825}
   - {fileID: 3321206904587990844}
   - {fileID: -7406925235683643473}
   - {fileID: 919787188802882757}
+  - {fileID: -8222242645453710649}
   - {fileID: -1138550736566668250}
   - {fileID: 1352970731660470789}
   - {fileID: 7430565548892587332}
@@ -199,6 +198,7 @@ MonoBehaviour:
   - {fileID: -8049621980135764830}
   - {fileID: -4857011543502529789}
   - {fileID: -7358176419709056748}
+  - {fileID: -5311398349111277940}
   customLoaderName: 
   m_renderMode: 1
   m_latencyOptimization: 0
@@ -639,17 +639,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   features:
   - {fileID: -4967478025853167729}
-  - {fileID: -8987434549934241216}
-  - {fileID: -2540994888844674104}
-  - {fileID: 8860264427871778260}
   - {fileID: 8071355565722771255}
   - {fileID: -4291494140850178086}
   - {fileID: 1178153336848326998}
   - {fileID: 2672294467005258693}
+  - {fileID: -2540994888844674104}
   - {fileID: -3781834883193557429}
   - {fileID: -4688209348661193940}
   - {fileID: 3502120016344221168}
   - {fileID: 9104628261865751215}
+  - {fileID: 8860264427871778260}
   - {fileID: -465979376171025307}
   - {fileID: 533745108303991565}
   - {fileID: 1965318766308906252}
@@ -657,9 +656,10 @@ MonoBehaviour:
   - {fileID: 7218668858989226027}
   - {fileID: -4474609671472307267}
   - {fileID: -2150873135516899974}
+  - {fileID: -8987434549934241216}
   customLoaderName: 
   m_renderMode: 1
-  m_latencyOptimization: 0
+  m_latencyOptimization: 1
   m_autoColorSubmissionMode: 1
   m_colorSubmissionModes:
     m_List: 00000000
