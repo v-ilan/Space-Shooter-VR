@@ -11,7 +11,7 @@ public class OpenDoor : MonoBehaviour
     [SerializeField] private GameObject openButton;
     [SerializeField] private Animator animator;
 
-    private const string BOOL_NAME = "isOpen";
+    private const string BOOL_NAME = "character_nearby";
 
     // Start is called before the first frame update
     void Start()
