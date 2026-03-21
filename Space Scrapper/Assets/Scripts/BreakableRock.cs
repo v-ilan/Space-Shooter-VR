@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BreakableRock : MonoBehaviour, IBreakable
 {
+    public event EventHandler OnObjectBroke;
     [SerializeField] private List<GameObject> breakablePieces;
     private float timeToBreak = 1.5f;
     private float timer = 0;
@@ -29,5 +31,6 @@ public class BreakableRock : MonoBehaviour, IBreakable
             }
             gameObject.SetActive(false);
         }
+        OnObjectBroke?.Invoke(this,EventArgs.Empty);
     }
 }
