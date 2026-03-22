@@ -1,0 +1,10 @@
+# ninja log v5
+46	1676	7959018327437668	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	1edddc179f9b9121
+36	1689	7959018327457746	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	398e503d97c6e671
+10	1714	7959018327878426	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	de748867585cd9ed
+69	1717	7959018327848292	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	6e814aeb4b85a3e0
+19	1774	7959018328453621	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	c47b1a3abbcbb6b3
+56	1921	7959018329958697	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	5f71d5e8353fa967
+27	1941	7959018330124088	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	b09135cf64f87c81
+0	2065	7959018331328639	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	df0205799c3966f2
+2065	2202	7959018332790800	C:/Users/ilanv/Documents/GitHub/Space-Shooter-VR/Space Scrapper/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/12273d6h/obj/arm64-v8a/libgame.so	63dc923aae6f181b
