@@ -5232,6 +5232,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &1339013177 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1620756128466898826, guid: ed70560a78fdda9469d2fa77f7b9abc8,
+    type: 3}
+  m_PrefabInstance: {fileID: 502605335419468114}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1340772995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7203,6 +7209,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 611877129548705517, guid: ed70560a78fdda9469d2fa77f7b9abc8,
+        type: 3}
+      propertyPath: m_RaycastMask.m_Bits
+      value: 2147483745
+      objectReference: {fileID: 0}
+    - target: {fileID: 1915808370276889128, guid: ed70560a78fdda9469d2fa77f7b9abc8,
+        type: 3}
+      propertyPath: m_PhysicsLayerMask.m_Bits
+      value: 65
+      objectReference: {fileID: 0}
     - target: {fileID: 3054898530602558551, guid: ed70560a78fdda9469d2fa77f7b9abc8,
         type: 3}
       propertyPath: m_Enabled
@@ -7243,6 +7259,11 @@ PrefabInstance:
       propertyPath: pinchAction
       value: 
       objectReference: {fileID: 827654621}
+    - target: {fileID: 7596819097296089202, guid: ed70560a78fdda9469d2fa77f7b9abc8,
+        type: 3}
+      propertyPath: m_RaycastMask.m_Bits
+      value: 2147483745
+      objectReference: {fileID: 0}
     - target: {fileID: 8051134279768624743, guid: ed70560a78fdda9469d2fa77f7b9abc8,
         type: 3}
       propertyPath: gripAction
@@ -7257,6 +7278,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8901030644793076919, guid: ed70560a78fdda9469d2fa77f7b9abc8,
+        type: 3}
+      propertyPath: m_PhysicsLayerMask.m_Bits
+      value: 65
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7289,12 +7315,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 502605335419468114}
   m_PrefabAsset: {fileID: 0}
---- !u!137 &502605335419468117 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 1620756128466898826, guid: ed70560a78fdda9469d2fa77f7b9abc8,
-    type: 3}
-  m_PrefabInstance: {fileID: 502605335419468114}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &502605335419468118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7308,7 +7328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HandVisualsController
   nearFarInteractor: {fileID: 502605335419468115}
-  handRenderer: {fileID: 502605335419468117}
+  handRenderer: {fileID: 1339013177}
 --- !u!114 &502605335419468119 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6477714475894107712, guid: ed70560a78fdda9469d2fa77f7b9abc8,
@@ -7355,6 +7375,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1742718234}
     m_Modifications:
+    - target: {fileID: 2786965978799214820, guid: 1157a932aea0f7c4caeaf25fdf7f7ef5,
+        type: 3}
+      propertyPath: m_Mass
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3525174117539208569, guid: 1157a932aea0f7c4caeaf25fdf7f7ef5,
         type: 3}
       propertyPath: m_Name
@@ -7674,17 +7699,17 @@ PrefabInstance:
     - target: {fileID: 1081707852945659798, guid: a549c9ba1222bcf47b8bfa5273460ab5,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.11194034
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 1081707852945659798, guid: a549c9ba1222bcf47b8bfa5273460ab5,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.11194034
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 1081707852945659798, guid: a549c9ba1222bcf47b8bfa5273460ab5,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1119403
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 1081707852945659798, guid: a549c9ba1222bcf47b8bfa5273460ab5,
         type: 3}
@@ -7736,20 +7761,64 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 121.8
       objectReference: {fileID: 0}
+    - target: {fileID: 1711057408210042851, guid: a549c9ba1222bcf47b8bfa5273460ab5,
+        type: 3}
+      propertyPath: m_Mass
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817482499595225780, guid: a549c9ba1222bcf47b8bfa5273460ab5,
+        type: 3}
+      propertyPath: m_Mass
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 2510136967482779508, guid: a549c9ba1222bcf47b8bfa5273460ab5,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4554444256103623964, guid: a549c9ba1222bcf47b8bfa5273460ab5,
+        type: 3}
+      propertyPath: m_Mass
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4939552846282835534, guid: a549c9ba1222bcf47b8bfa5273460ab5,
+        type: 3}
+      propertyPath: m_MovementType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4939552846282835534, guid: a549c9ba1222bcf47b8bfa5273460ab5,
+        type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193416066788344502, guid: a549c9ba1222bcf47b8bfa5273460ab5,
+        type: 3}
+      propertyPath: m_Mass
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8000092611500614716, guid: a549c9ba1222bcf47b8bfa5273460ab5,
         type: 3}
       propertyPath: 'breakablePieces.Array.data[0]'
       value: 
       objectReference: {fileID: 1443790203}
-    m_RemovedComponents: []
+    - target: {fileID: 8614491565223826422, guid: a549c9ba1222bcf47b8bfa5273460ab5,
+        type: 3}
+      propertyPath: m_Mass
+      value: 12
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4939552846282835534, guid: a549c9ba1222bcf47b8bfa5273460ab5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1026097093776802399, guid: a549c9ba1222bcf47b8bfa5273460ab5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6769810357078592178}
+    - targetCorrespondingSourceObject: {fileID: 1026097093776802399, guid: a549c9ba1222bcf47b8bfa5273460ab5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6769810357078592179}
   m_SourcePrefab: {fileID: 100100000, guid: a549c9ba1222bcf47b8bfa5273460ab5, type: 3}
 --- !u!1 &6769810357078592172 stripped
 GameObject:
@@ -7757,6 +7826,95 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6769810357078592171}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6769810357078592178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769810357078592172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable
+  m_InteractionManager: {fileID: 0}
+  m_Colliders: []
+  m_InteractionLayers:
+    m_Bits: 1
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_AutoFindParentInteractableInHierarchy: 0
+  m_ParentInteractableObject: {fileID: 0}
+--- !u!114 &6769810357078592179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769810357078592172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9fc955cdcaf7ce47b498818f50c5b95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleHapticTrigger
+  intensity: 0.8
+  duration: 0.1
+  interactable: {fileID: 6769810357078592178}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
