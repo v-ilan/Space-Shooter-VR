@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e78cf6cd674704b955f9e94058a620, type: 3}
   m_Name: LocomotionSettings
   m_EditorClassIdentifier: Assembly-CSharp::LocomotionSettingsSO
-  movementType: 1
-  moveSpeed: 3
+  moveSpeed: 2.5
   turnType: 0
   turnSpeed: 60
   snapAngle: 45
