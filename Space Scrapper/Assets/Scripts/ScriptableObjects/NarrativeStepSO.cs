@@ -12,8 +12,12 @@ public class NarrativeStepSO : ScriptableObject
 
     public void Activate()
     {
-        if (isCompleted) return;
-        isCompleted = true;
-        OnStepActivated?.Invoke(this, EventArgs.Empty);
+        if (!isCompleted)
+        {
+            isCompleted = true;
+            OnStepActivated?.Invoke(this, EventArgs.Empty);
+        }
     }
+
+    public void ResetStep() => isCompleted = false;
 }
