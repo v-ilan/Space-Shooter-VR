@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BreakableRock : MonoBehaviour, IBreakable
 {
-    public event EventHandler OnObjectBroke;
+    public event Action OnObjectBroke;
     [SerializeField] private List<GameObject> breakablePieces;
     private float timeToBreak = 1.5f;
     private float timer = 0;
@@ -29,7 +29,7 @@ public class BreakableRock : MonoBehaviour, IBreakable
                 piece.SetActive(true);
                 piece.transform.parent = null;
             }
-            OnObjectBroke?.Invoke(this,EventArgs.Empty);
+            OnObjectBroke?.Invoke();
             gameObject.SetActive(false);
         }
     }
