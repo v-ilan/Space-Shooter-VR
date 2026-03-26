@@ -4,57 +4,87 @@ using UnityEngine.XR.Content.Interaction;
 
 public class OutsideSpaceController : MonoBehaviour
 {
-    [SerializeField] private Transform lever;
-    [SerializeField] private Transform wheel;
-    [SerializeField] private Transform joystick;
+    [Header("Input Hardware")]
+    [SerializeField] private XRLever throttleLever;
+    [SerializeField] private XRKnob steeringWheel;
+    [SerializeField] private XRJoystick flightJoystick;
 
-    [SerializeField] private float speed;
-    [SerializeField] private float turnSpeed;
+    [Header("Flight Settings")]
+    [SerializeField] private float forwardSpeed = 5.0f;
+    [SerializeField] private float strafeSpeed = 3.0f;
+    [SerializeField] private float verticalSpeed = 5f;
 
-    private XRLever xRLever;
-    private XRKnob xRWheelKnob;
-    private XRJoystick xRJoystick;
+    [Header("Visual Tilt (Feedback)")]
+    [SerializeField] private Transform tiltPivot; // Position in the cockpit where rotation centers
+    [SerializeField] private float maxPitchAngle = 20f;
+    [SerializeField] private float maxRollAngle = 25f;
+    [SerializeField] private float rotationSmoothing = 2f;
 
-    private bool isDrive = false;
+    private bool _isEngineActive;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void OnEnable()
     {
-        if(!lever.TryGetComponent<XRLever>(out xRLever))
+        if (throttleLever != null)
         {
-            Debug.LogError("No XRLever on lever " + lever.name);
-        }
-        if(!wheel.TryGetComponent<XRKnob>(out xRWheelKnob))
-        {
-            Debug.LogError("No XRKnob on wheel " + wheel.name);
-        }
-        if(!joystick.TryGetComponent<XRJoystick>(out xRJoystick))
-        {
-            Debug.LogError("No XRJoystick on joystick " + joystick.name);
-        }
-
-        xRLever.onLeverActivate.AddListener(StartDriving);
-        xRLever.onLeverDeactivate.AddListener(StopDriving);
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(isDrive)
-        {
-            DriveSpaceShip();
+            throttleLever.onLeverActivate.AddListener(OnEngineStart);
+            throttleLever.onLeverDeactivate.AddListener(OnEngineStop);
         }
     }
 
-    private void StartDriving() => isDrive = true;
-
-    private void StopDriving() => isDrive = false;
-
-    private void DriveSpaceShip()
+    private void OnDisable()
     {
-        float sideVelocity = turnSpeed * Mathf.Lerp(-1, 1, xRWheelKnob.value);
-        Vector3 velocity = new Vector3(sideVelocity, 0, speed);
-        transform.position += velocity * Time.deltaTime;
+        if (throttleLever != null)
+        {
+            throttleLever.onLeverActivate.RemoveListener(OnEngineStart);
+            throttleLever.onLeverDeactivate.RemoveListener(OnEngineStop);
+        }
+    }
+
+    private void OnEngineStart() => _isEngineActive = true;
+    private void OnEngineStop() => _isEngineActive = false;
+
+    private void Update()
+    {
+        if (_isEngineActive)
+        {
+            HandleSpaceTranslation();
+            //HandleSpaceRotation();
+        }
+        HandleSpaceRotation();
+    }
+
+    private void HandleSpaceTranslation()
+    {
+        // Strafe (Wheel)
+        float xInput = Mathf.Lerp(-1f, 1f, steeringWheel.value);
+        
+        // Vertical (Joystick Y) -> Now the joystick moves the ship UP/DOWN
+        float yInput = flightJoystick.value.y;
+
+        Vector3 moveDir = new Vector3(xInput * strafeSpeed, yInput * verticalSpeed, forwardSpeed);
+        
+        // Move the World Parent
+        transform.Translate(moveDir * Time.deltaTime, Space.Self);
+    }
+
+    private void HandleSpaceRotation()
+    {
+        if (tiltPivot == null) return;
+
+        // Calculate intended Tilt based on Joystick
+        // Note: We use the joystick input to define what the SHIP'S rotation should look like
+        float targetPitch = flightJoystick.value.y * maxPitchAngle;
+        float targetRoll = -flightJoystick.value.x * maxRollAngle;
+
+        // Create the rotation we WANT the ship to have
+        Quaternion targetRotation = Quaternion.Euler(targetPitch, 0, targetRoll);
+
+        // 3. Apply the rotation RELATIVE to the pivot
+        // We smoothly interpolate the world's rotation toward the target
+        transform.localRotation = Quaternion.Slerp(
+            transform.localRotation, 
+            targetRotation, 
+            Time.deltaTime * rotationSmoothing
+        );
     }
 }
