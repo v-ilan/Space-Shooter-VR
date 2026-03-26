@@ -48,9 +48,8 @@ public class OutsideSpaceController : MonoBehaviour
         if (_isEngineActive)
         {
             HandleSpaceTranslation();
-            //HandleSpaceRotation();
+            HandleSpaceRotation();
         }
-        HandleSpaceRotation();
     }
 
     private void HandleSpaceTranslation()
