@@ -3479,6 +3479,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f57c001a3d3958428346e7cbeb16e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnObjectTrashed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 688076592}
+        m_TargetAssemblyTypeName: NarrativeTrigger, Assembly-CSharp
+        m_MethodName: TriggerStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!135 &688076591
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10791,6 +10806,41 @@ PrefabInstance:
       propertyPath: 'breakablePieces.Array.data[0]'
       value: 
       objectReference: {fileID: 1443790203}
+    - target: {fileID: 8000092611500614716, guid: a549c9ba1222bcf47b8bfa5273460ab5,
+        type: 3}
+      propertyPath: OnObjectBroke.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000092611500614716, guid: a549c9ba1222bcf47b8bfa5273460ab5,
+        type: 3}
+      propertyPath: OnObjectBroke.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000092611500614716, guid: a549c9ba1222bcf47b8bfa5273460ab5,
+        type: 3}
+      propertyPath: OnObjectBroke.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6769810357078592179}
+    - target: {fileID: 8000092611500614716, guid: a549c9ba1222bcf47b8bfa5273460ab5,
+        type: 3}
+      propertyPath: OnObjectBroke.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000092611500614716, guid: a549c9ba1222bcf47b8bfa5273460ab5,
+        type: 3}
+      propertyPath: OnObjectBroke.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TriggerStep
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000092611500614716, guid: a549c9ba1222bcf47b8bfa5273460ab5,
+        type: 3}
+      propertyPath: OnObjectBroke.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NarrativeTrigger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000092611500614716, guid: a549c9ba1222bcf47b8bfa5273460ab5,
+        type: 3}
+      propertyPath: OnObjectBroke.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8614491565223826422, guid: a549c9ba1222bcf47b8bfa5273460ab5,
         type: 3}
       propertyPath: m_Mass
@@ -10798,12 +10848,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4939552846282835534, guid: a549c9ba1222bcf47b8bfa5273460ab5, type: 3}
+    - {fileID: 3171564898051769234, guid: a549c9ba1222bcf47b8bfa5273460ab5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1026097093776802399, guid: a549c9ba1222bcf47b8bfa5273460ab5,
         type: 3}
-      insertIndex: -1
+      insertIndex: 3
       addedObject: {fileID: 6769810357078592178}
     - targetCorrespondingSourceObject: {fileID: 1026097093776802399, guid: a549c9ba1222bcf47b8bfa5273460ab5,
         type: 3}
@@ -10899,12 +10950,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6769810357078592172}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9fc955cdcaf7ce47b498818f50c5b95, type: 3}
+  m_Script: {fileID: 11500000, guid: f4daf3ea1ecd58c4c94ead05d6a533a3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SimpleHapticTrigger
-  intensity: 0.8
-  duration: 0.1
-  interactable: {fileID: 6769810357078592178}
+  m_EditorClassIdentifier: Assembly-CSharp::NarrativeTrigger
+  stepToTrigger: {fileID: 11400000, guid: 5cbd64dbcc57f014197efefb2b81177b, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
