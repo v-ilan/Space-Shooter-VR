@@ -2122,7 +2122,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!320 &318805682
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -8949,10 +8949,10 @@ MonoBehaviour:
   forwardSpeed: 5
   strafeSpeed: 3
   verticalSpeed: 5
-  shipPivot: {fileID: 1427271023}
+  tiltPivot: {fileID: 0}
   maxPitchAngle: 15
   maxRollAngle: 20
-  tiltSmoothing: 5
+  rotationSmoothing: 2
 --- !u!1 &1876773381
 GameObject:
   m_ObjectHideFlags: 0
@@ -10239,12 +10239,12 @@ PrefabInstance:
     - target: {fileID: 521789693181416298, guid: ed70560a78fdda9469d2fa77f7b9abc8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.85
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 521789693181416298, guid: ed70560a78fdda9469d2fa77f7b9abc8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 521789693181416298, guid: ed70560a78fdda9469d2fa77f7b9abc8,
         type: 3}
