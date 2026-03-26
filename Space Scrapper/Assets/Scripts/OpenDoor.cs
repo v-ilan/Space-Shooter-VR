@@ -11,15 +11,16 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class OpenDoor : MonoBehaviour
 {
-[Header("Components")]
+    [Header("Components")]
     [SerializeField] private Animator doorAnimator;
     [SerializeField] private XRSimpleInteractable interactableButton;
+    [SerializeField] private EnergySocketInteractor energySocketInteractor;
 
     [Header("Settings")]
     [SerializeField] private string boolParameterName = "Open";
     
-    // Using a Hash is more performant than a String for Animators
-    private int _openBoolHash;
+    private bool _isPowered = false;
+    private int _openBoolHash;    // Using a Hash is more performant than a String for Animators
 
     private void Awake()
     {
@@ -27,34 +28,80 @@ public class OpenDoor : MonoBehaviour
         
         // Safety check
         if (interactableButton == null) 
+        {
             interactableButton = GetComponentInChildren<XRSimpleInteractable>();
+        }
     }
 
     private void OnEnable()
     {
-        // Roadmap Item #4: Lifecycle Management
         if (interactableButton != null)
+        {
             interactableButton.selectEntered.AddListener(OnButtonSelected);
+        }
+        if (energySocketInteractor != null)
+        {
+            // Subscribe to XRI Select events
+            energySocketInteractor.selectEntered.AddListener(OnPowerRestored);
+            energySocketInteractor.selectExited.AddListener(OnPowerLost);
+
+            // Initial Check: Is there already something in the socket?
+            CheckInitialPowerState();
+        }
     }
+
 
     private void OnDisable()
     {
         if (interactableButton != null)
+        {
             interactableButton.selectEntered.RemoveListener(OnButtonSelected);
+        }
+
+        if (energySocketInteractor != null)
+        {
+            energySocketInteractor.selectEntered.RemoveListener(OnPowerRestored);
+            energySocketInteractor.selectExited.AddListener(OnPowerLost);
+        }
+        
     }
 
     private void OnButtonSelected(SelectEnterEventArgs args)
     {
         ToggleDoor();
-        TriggerHaptic(args.interactorObject);
+        //TriggerHaptic(args.interactorObject);
+    }
+
+    private void OnPowerRestored(SelectEnterEventArgs args)
+    {
+        _isPowered = true;
+        ToggleDoor();
+    }
+
+    private void OnPowerLost(SelectExitEventArgs args)
+    {
+        _isPowered = false;
+        ToggleDoor();
+    }
+
+    private void CheckInitialPowerState()
+    {
+        // If the socket already has an interactor (e.g. starting with a battery inside)
+        _isPowered = energySocketInteractor.hasSelection;
+        ToggleDoor();
     }
 
     private void ToggleDoor()
     {
-        if (doorAnimator == null) return;
-
-        bool currentState = doorAnimator.GetBool(_openBoolHash);
-        doorAnimator.SetBool(_openBoolHash, !currentState);
+        if(!_isPowered)
+        {
+            doorAnimator.SetBool(_openBoolHash, false);
+        }
+        else if (doorAnimator != null)
+        {
+            bool currentState = doorAnimator.GetBool(_openBoolHash);
+            doorAnimator.SetBool(_openBoolHash, !currentState);
+        }
     }
 
     private void TriggerHaptic(IXRSelectInteractor interactor)
