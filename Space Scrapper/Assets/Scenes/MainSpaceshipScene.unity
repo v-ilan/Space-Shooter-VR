@@ -1190,6 +1190,53 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 114411442}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &129874019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 129874021}
+  - component: {fileID: 129874020}
+  m_Layer: 0
+  m_Name: LocomotionSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &129874020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129874019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ff43d61a3930934fb191f5dc52b2170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocomotionSetupManager
+  locomotionSettingsSO: {fileID: 11400000, guid: 67524da10ad9dbc4fa90f0d8c26ac95c,
+    type: 2}
+  locomotionManager: {fileID: 502605335419468115}
+--- !u!4 &129874021
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129874019}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &130682463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3190,7 +3237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LocomotionSettingsUI
   locomotionSettingsSO: {fileID: 11400000, guid: 67524da10ad9dbc4fa90f0d8c26ac95c,
     type: 2}
-  locomotionManager: {fileID: 502605335419468115}
+  locomotionSettings: {fileID: 129874020}
   moveSpeedSlider: {fileID: 1775868636}
   moveSpeedLabel: {fileID: 1122795625}
   snapTurnSlider: {fileID: 2102806125}
@@ -10790,3 +10837,4 @@ SceneRoots:
   - {fileID: 925290790}
   - {fileID: 108435224}
   - {fileID: 1389461316}
+  - {fileID: 129874021}

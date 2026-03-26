@@ -8,8 +8,6 @@ public class LocomotionSettingsUI : MonoBehaviour
 {
     [Header("Data Architecture")]
     [SerializeField] private LocomotionSettingsSO locomotionSettingsSO;
-    [SerializeField] private LocomotionManager locomotionManager;
-    [SerializeField] private LocomotionSettings locomotionSettings;
 
     [Header("UI Movement Elements")]
     [SerializeField] private Slider moveSpeedSlider;

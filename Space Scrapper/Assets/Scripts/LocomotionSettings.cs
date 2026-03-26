@@ -46,9 +46,7 @@ public class LocomotionSettings : MonoBehaviour
         if (locomotionManager.smoothTurnProvider)
         {
             locomotionManager.smoothTurnProvider.turnSpeed = locomotionSettingsSO.turnSpeed;
-        }
-        
-        Debug.Log("Locomotion Hardware Synchronized.");
+        }        
     }
 
     public LocomotionSettingsSO GetLocomotionSettings() => locomotionSettingsSO;
