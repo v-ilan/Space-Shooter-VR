@@ -6,7 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 [RequireComponent(typeof(XRBaseInteractable))]
 public class GrabPhysicsStabilizer : MonoBehaviour
 {
-private Rigidbody _rb;
+    private Rigidbody _rb;
     private XRBaseInteractable _interactable;
 
     private void Awake()
