@@ -1,16 +1,10 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.XR;
+using UnityEngine.XR.Content.Interaction;
+using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class LocomotionSetupUI : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
