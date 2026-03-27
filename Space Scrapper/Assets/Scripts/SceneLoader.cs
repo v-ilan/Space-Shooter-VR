@@ -5,9 +5,9 @@ public static class SceneLoader
 {
     public enum Scene
     {
-        MainMenuScene,
+        StartMenuScene,
         LoadingScene,
-        MainGameScene,
+        MainSpaceshipScene,
     }
     
     private static Scene targetScene;
