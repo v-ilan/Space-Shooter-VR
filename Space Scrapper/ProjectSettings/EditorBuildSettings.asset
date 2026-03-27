@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenuScene.unity
     guid: bf366b48764f455429d3ac1004dade8d
   - enabled: 1
+    path: Assets/Scenes/LoadingScene.unity
+    guid: 2bcf1a06bf203b6438855d234ef2fa97
+  - enabled: 1
     path: Assets/Scenes/MainSpaceshipScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
@@ -16,3 +19,4 @@ EditorBuildSettings:
       type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 9219aa7e4c8cf2b40a9a9cefe62508a5,
       type: 2}
+  m_UseUCBPForAssetBundles: 0
