@@ -23,7 +23,7 @@ public class GameStartMenu : MonoBehaviour
         startButton.onClick.AddListener(() => {
             ShowPage(SubMenu.None); // Hide UI for transition
             SceneTransitionUI.Instance.FadeOut(() => {
-                SceneLoader.Load(SceneLoader.Scene.MainGameScene);
+                SceneLoader.Load(SceneLoader.Scene.MainSpaceshipScene);
             });
         });
 
