@@ -3576,7 +3576,7 @@ GameObject:
   - component: {fileID: 1255856882}
   - component: {fileID: 1255856881}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: SceneTransitionCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3656,7 +3656,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255856877}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -3672,8 +3672,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cc69583effa397488f2e5fe1aa73c77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneTransitionUI
-  faderCanvasGroup: {fileID: 0}
-  fadeDuration: 1.5
+  faderCanvasGroup: {fileID: 1255856881}
+  fadeOnStart: 1
+  fadeInDuration: 1.5
+  fadeOutDuration: 1.5
   fadeCurve:
     serializedVersion: 2
     m_Curve:
