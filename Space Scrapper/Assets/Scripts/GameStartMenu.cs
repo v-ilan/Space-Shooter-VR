@@ -1,74 +1,51 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class GameStartMenu : MonoBehaviour
 {
+    private enum SubMenu { Main, Options, About, None }
+
     [Header("UI Pages")]
-    public GameObject mainMenu;
-    public GameObject options;
-    public GameObject about;
+    [SerializeField] private GameObject mainMenuPage;
+    [SerializeField] private GameObject optionsPage;
+    [SerializeField] private GameObject aboutPage;
 
-    [Header("Main Menu Buttons")]
-    public Button startButton;
-    public Button optionButton;
-    public Button aboutButton;
-    public Button quitButton;
+    [Header("Buttons")]
+    [SerializeField] private Button startButton;
+    [SerializeField] private Button optionsButton;
+    [SerializeField] private Button aboutButton;
+    [SerializeField] private Button quitButton;
+    [SerializeField] private List<Button> returnButtons;
 
-    public List<Button> returnButtons;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        EnableMainMenu();
+        startButton.onClick.AddListener(() => {
+            ShowPage(SubMenu.None); // Hide UI for transition
+            SceneTransitionUI.Instance.FadeOut(() => {
+                SceneLoader.Load(SceneLoader.Scene.MainGameScene);
+            });
+        });
 
-        //Hook events
-        startButton.onClick.AddListener(StartGame);
-        optionButton.onClick.AddListener(EnableOption);
-        aboutButton.onClick.AddListener(EnableAbout);
-        quitButton.onClick.AddListener(QuitGame);
+        optionsButton.onClick.AddListener(() => ShowPage(SubMenu.Options));
+        aboutButton.onClick.AddListener(() => ShowPage(SubMenu.About));
+        quitButton.onClick.AddListener(Application.Quit);
 
-        foreach (var item in returnButtons)
+        foreach (var btn in returnButtons)
         {
-            item.onClick.AddListener(EnableMainMenu);
+            btn.onClick.AddListener(() => ShowPage(SubMenu.Main));
         }
     }
 
-    public void QuitGame()
+    private void Start()
     {
-        Application.Quit();
+        ShowPage(SubMenu.Main);
     }
 
-    public void StartGame()
+    private void ShowPage(SubMenu targetPage)
     {
-        HideAll();
-        SceneTransitionManager.singleton.GoToSceneAsync(1);
-    }
-
-    public void HideAll()
-    {
-        mainMenu.SetActive(false);
-        options.SetActive(false);
-        about.SetActive(false);
-    }
-
-    public void EnableMainMenu()
-    {
-        mainMenu.SetActive(true);
-        options.SetActive(false);
-        about.SetActive(false);
-    }
-    public void EnableOption()
-    {
-        mainMenu.SetActive(false);
-        options.SetActive(true);
-        about.SetActive(false);
-    }
-    public void EnableAbout()
-    {
-        mainMenu.SetActive(false);
-        options.SetActive(false);
-        about.SetActive(true);
+        mainMenuPage.SetActive(targetPage == SubMenu.Main);
+        optionsPage.SetActive(targetPage == SubMenu.Options);
+        aboutPage.SetActive(targetPage == SubMenu.About);
     }
 }
