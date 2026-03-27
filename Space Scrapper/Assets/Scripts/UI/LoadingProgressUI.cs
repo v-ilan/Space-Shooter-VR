@@ -25,9 +25,7 @@ public class LoadingProgressUI : MonoBehaviour
     {
         float progress = SceneLoader.GetLoadingProgress();
         // Update the bar
-        progressBar.value = progress;
-        fillImage.fillAmount = progress;
-        //*/
+        UpdateProgressBar(progress);
 
         /* Rotate the spinner (so they know the app is "Alive")
             spinnerIcon.transform.Rotate(Vector3.forward, -rotationSpeed * Time.deltaTime);
@@ -35,6 +33,13 @@ public class LoadingProgressUI : MonoBehaviour
 
         UpdateLoadingDots();
     }
+
+    private void UpdateProgressBar(float progress)
+    {
+        progressBar.value = progress;
+        fillImage.fillAmount = progress;
+    }
+
     private void UpdateLoadingDots()
     {
         _dotTimer += Time.deltaTime;
@@ -42,8 +47,8 @@ public class LoadingProgressUI : MonoBehaviour
         if(_dotTimer >= dotInterval)
         {
             _dotCount = (_dotCount + 1) % _dotMax + 1;
-
             loadingText.text = _baseText + string.Concat(Enumerable.Repeat(".", _dotCount));
+            _dotTimer = 0;
         }
 
     }
