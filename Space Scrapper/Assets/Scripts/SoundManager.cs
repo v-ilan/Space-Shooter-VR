@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.XR.Content.Interaction;
 
 public class SoundManager : MonoBehaviour
@@ -36,13 +37,9 @@ public class SoundManager : MonoBehaviour
         PlaySound(audioClipArray[UnityEngine.Random.Range(0, audioClipArray.Length)], position, volume);
     }
 
-    public void ChangeVolume()
+    public void ChangeVolume(float volume)
     {
-        sfxVolume += 0.1f;
-        if (sfxVolume > 01f)
-        {
-            sfxVolume = 0;        
-        }
+        sfxVolume = volume;
         OnVolumeChange?.Invoke(this, EventArgs.Empty);
         PlayerPrefs.SetFloat(PLAYER_PREFS_SFX_VOLUME, sfxVolume);
         PlayerPrefs.Save();
