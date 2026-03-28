@@ -6,56 +6,41 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 [RequireComponent(typeof(AudioSource))]
 public class SciFiPistolSound : MonoBehaviour
 {
-    [SerializeField] private XRGrabInteractable xrGrabInteractable;
+private XRGrabInteractable xrGrabInteractable;
     private AudioSource audioSource;
-    private float sfxVolume = 1f;
 
     private void Awake()
     {
-        if (xrGrabInteractable == null)
-        {
-            xrGrabInteractable = transform.parent.GetComponent<XRGrabInteractable>();
-        }
+        xrGrabInteractable = GetComponentInParent<XRGrabInteractable>();
         audioSource = GetComponent<AudioSource>();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        SoundManager.Instance.OnVolumeChange += SoundManager_OnVolumeChange;
-        UpdateVolume();
+        audioSource.spatialBlend = 1.0f; 
     }
 
     void OnEnable()
     {
+        // XRI Listeners
         xrGrabInteractable.activated.AddListener(OnActivated_StartShooting);
         xrGrabInteractable.deactivated.AddListener(OnDeactivated_StopShooting);
+
+        SoundManager.Instance.OnVolumeChange += SoundManager_OnVolumeChange;
+        UpdateVolume();
     }
 
     void OnDisable()
     {
         xrGrabInteractable.activated.RemoveListener(OnActivated_StartShooting);
         xrGrabInteractable.deactivated.RemoveListener(OnDeactivated_StopShooting);
+        
+        SoundManager.Instance.OnVolumeChange -= SoundManager_OnVolumeChange;
     }
     
-    private void SoundManager_OnVolumeChange(object sender, EventArgs e)
-    {
-        UpdateVolume();
-    }
+    private void SoundManager_OnVolumeChange(object sender, EventArgs e) => UpdateVolume();
 
     private void UpdateVolume()
     {
-        sfxVolume = SoundManager.Instance.GetVolume();
-        audioSource.volume = sfxVolume;
+        audioSource.volume = SoundManager.Instance.GetVolume();
     }
 
-    private void OnActivated_StartShooting(ActivateEventArgs arg0)
-    {
-        audioSource.Play();
-    }
-
-    private void OnDeactivated_StopShooting(DeactivateEventArgs arg0)
-    {
-        audioSource.Stop();
-    }
+    private void OnActivated_StartShooting(ActivateEventArgs arg0) => audioSource.Play();
+    private void OnDeactivated_StopShooting(DeactivateEventArgs arg0) => audioSource.Stop();
 }
