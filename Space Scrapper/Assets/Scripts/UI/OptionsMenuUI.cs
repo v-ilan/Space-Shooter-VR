@@ -18,9 +18,9 @@ public class OptionsMenuUI : MonoBehaviour
     [SerializeField] private List<Button> returnButtons;
 
     [Header("Sound")]
-    [SerializeField] private TextMeshPro musicText;
+    [SerializeField] private TextMeshProUGUI musicText;
     [SerializeField] private Slider musicSlider;
-    [SerializeField] private TextMeshPro sfxText;
+    [SerializeField] private TextMeshProUGUI sfxText;
     [SerializeField] private Slider sfxSlider;
 
     private void Awake()
@@ -34,7 +34,7 @@ public class OptionsMenuUI : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    private void Start()
     {
         // Sync Sliders to current Manager values whenever UI is opened
         musicSlider.value = MusicManager.Instance.GetVolume();
@@ -45,6 +45,8 @@ public class OptionsMenuUI : MonoBehaviour
         sfxSlider.onValueChanged.AddListener(HandleSFXChange);
 
         UpdateVisuals();
+
+        ShowPage(SubMenu.Options);
     }
 
     private void OnDisable()
@@ -52,11 +54,6 @@ public class OptionsMenuUI : MonoBehaviour
         // Clean up Slider listeners to prevent memory leaks/multiple triggers
         musicSlider.onValueChanged.RemoveListener(HandleMusicChange);
         sfxSlider.onValueChanged.RemoveListener(HandleSFXChange);
-    }
-
-    private void Start()
-    {
-        ShowPage(SubMenu.Options);
     }
 
     private void HandleMusicChange(float value)

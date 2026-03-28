@@ -16,7 +16,7 @@ public class SciFiPistolSound : MonoBehaviour
         audioSource.spatialBlend = 1.0f; 
     }
 
-    void OnEnable()
+    void Start()
     {
         // XRI Listeners
         xrGrabInteractable.activated.AddListener(OnActivated_StartShooting);

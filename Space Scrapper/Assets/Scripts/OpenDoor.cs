@@ -35,7 +35,7 @@ public class OpenDoor : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    private void Start()
     {
         if (interactableButton != null)
         {
@@ -87,9 +87,8 @@ public class OpenDoor : MonoBehaviour
 
     private void CheckInitialPowerState()
     {
-        // If the socket already has an interactor (e.g. starting with a battery inside)
+        // If the socket already has an interactor
         _isPowered = energySocketInteractor.hasSelection;
-        ToggleDoor();
     }
 
     private void ToggleDoor()

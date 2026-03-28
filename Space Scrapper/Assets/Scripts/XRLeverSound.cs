@@ -22,7 +22,7 @@ public class XRLeverSound : MonoBehaviour
         audioSource.spatialBlend = 0.5f; 
     }
 
-    void OnEnable()
+    void Start()
     {
         xrLever.onLeverActivate.AddListener(OnEngineStart);
         xrLever.onLeverDeactivate.AddListener(OnEngineStop);

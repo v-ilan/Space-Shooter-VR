@@ -1387,6 +1387,10 @@ MonoBehaviour:
   locomotionButton: {fileID: 1204763314}
   returnButtons:
   - {fileID: 1149651113}
+  musicText: {fileID: 1245975613}
+  musicSlider: {fileID: 871984939}
+  sfxText: {fileID: 1666923622}
+  sfxSlider: {fileID: 1535931380}
 --- !u!1 &151914820
 GameObject:
   m_ObjectHideFlags: 0
@@ -3108,8 +3112,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 470096665}
-  - component: {fileID: 470096664}
   - component: {fileID: 470096666}
+  - component: {fileID: 470096664}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -5765,10 +5769,10 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: de6712d4139623b46b229e98e3f074cc, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -9369,7 +9373,7 @@ GameObject:
   - component: {fileID: 1535931379}
   - component: {fileID: 1535931380}
   m_Layer: 5
-  m_Name: Music Volume Slider
+  m_Name: SFX Volume Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9748,8 +9752,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1606695668}
-  - component: {fileID: 1606695670}
   - component: {fileID: 1606695669}
+  - component: {fileID: 1606695670}
   m_Layer: 0
   m_Name: Door Sounds
   m_TagString: Untagged
@@ -9797,7 +9801,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 89e19a13c587d4946b7a7b4ce8394f01, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -10271,7 +10275,7 @@ GameObject:
   - component: {fileID: 1666923623}
   - component: {fileID: 1666923622}
   m_Layer: 5
-  m_Name: Music Volume (TMP)
+  m_Name: SFX Volume (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -16,9 +16,13 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null) { Destroy(gameObject); return; }
+        if (Instance != null) 
+        { 
+            Destroy(gameObject); 
+            return; 
+        }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         sfxVolume = PlayerPrefs.GetFloat("PLAYER_PREFS_SFX_VOLUME", 1f);
     }
