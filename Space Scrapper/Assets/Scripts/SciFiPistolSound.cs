@@ -6,7 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 [RequireComponent(typeof(AudioSource))]
 public class SciFiPistolSound : MonoBehaviour
 {
-private XRGrabInteractable xrGrabInteractable;
+    [SerializeField] private XRGrabInteractable xrGrabInteractable;
     private AudioSource audioSource;
 
     private void Awake()
