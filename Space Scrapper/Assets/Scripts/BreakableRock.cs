@@ -11,6 +11,8 @@ public class BreakableRock : MonoBehaviour, IBreakable
     private float timeToBreak = 1.5f;
     private float timer = 0;
 
+    private bool isBroken = false;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -22,16 +24,28 @@ public class BreakableRock : MonoBehaviour, IBreakable
 
     public void Break()
     {
-        timer += Time.deltaTime;
-        if(timer > timeToBreak)
+        if(!isBroken)
         {
-            foreach(var piece in breakablePieces)
-            {
-                piece.SetActive(true);
-                piece.transform.parent = null;
+            timer += Time.deltaTime;
+            if(timer > timeToBreak)
+            {   Debug.Log("Break time: " + Time.time);
+                isBroken = true;
+                foreach(var piece in breakablePieces)
+                {   
+                    piece.SetActive(true);
+                    piece.transform.parent = null;
+                }
+                OnObjectBroke?.Invoke();
+                gameObject.SetActive(false);
+                //Destroy(gameObject);
+                Debug.Log("False time: " + Time.time);
             }
-            OnObjectBroke?.Invoke();
-            gameObject.SetActive(false);
         }
+    }
+
+    // If the Timeline tries to force the cube back to life after I've broken...
+    private void OnEnable()
+    {
+        gameObject.SetActive(!isBroken);
     }
 }
