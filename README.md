@@ -9,7 +9,7 @@ The project prioritizes Memory Safety, Physics Stability, and GPU Efficiency for
 1. Advanced Interaction & Physics 🧬
    * Interaction Groups (XRI 3.3.1): Implemented a sophisticated hand-priority system to manage "Near-Far" interactor handoffs within tight cockpit confines.
    * Interface-Based Interaction: Decoupled combat and harvesting systems using the IBreakable interface, allowing for infinite scalability of destructible assets without script dependencies.
-   * GrabPhysicsStabilizer: Engineered a dynamic CollisionDetectionMode switcher to eliminate "tunneling" issues when objects are released during high-speed flight.
+   * GrabPhysicsStabilizer: Engineered a dynamic CollisionDetectionMode switcher to eliminate "tunneling" issues when objects are released during object grabbing.
    * Logic-Gated Lifecycle: All interactive objects utilize a "Gatekeeper" state-lock pattern to ensure atomic execution of physics events, preventing frame-rate "spikes" during object destruction.
 
 2. Lighting & Rendering (Unity 6 / URP) 💡
