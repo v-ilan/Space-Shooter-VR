@@ -1,31 +1,37 @@
-# Space Scrapper VR
+# Space Scrapper VR 🚀
 
-## 🚀 Overview
-Space Scrapper is a VR scavenger-loop experience where players explore, collect scrap, and maintain their ship. Originally inspired by the "Space Scrapper" tutorial by Valem, this repository serves as a modernized implementation built from the ground up for the latest Unity ecosystem.
+##  🛰️ Overview
+Space Scrapper VR is a modernized, performance-optimized scavenger experience built for the Meta Quest ecosystem. While inspired by Valem's "Space Scrapper" concept, this repository represents a complete architectural overhaul, transitioning from "tutorial-level" scripts to a Production-Ready XR Framework built on Unity 6.
 
-## 🛠️ Technical Highlights
-This project focuses on transitioning from "tutorial-level" code to a production-ready architecture by leveraging the latest features in Unity and XR Interaction Toolkit.
+## 🛠️ Technical Architecture
+The project prioritizes Memory Safety, Physics Stability, and GPU Efficiency for standalone VR hardware.
 
-* Updated Game Engine: Utlizing the latest version of Unity 6000.0.35f1 newest tools and features.
-* Modern Interaction Framework: Migrated from legacy Direct/Ray Interactors to the XRI 3.3.1 Near-Far Interactor system and Interaction Groups, providing a unified and more performant input handling logic.
+1. Advanced Interaction & Physics 🧬
+   * Interaction Groups (XRI 3.3.1): Implemented a sophisticated hand-priority system to manage "Near-Far" interactor handoffs within tight cockpit confines.
+   * Interface-Based Interaction: Decoupled combat and harvesting systems using the IBreakable interface, allowing for infinite scalability of destructible assets without script dependencies.
+   * GrabPhysicsStabilizer: Engineered a dynamic CollisionDetectionMode switcher to eliminate "tunneling" issues when objects are released during high-speed flight.
+   * Logic-Gated Lifecycle: All interactive objects utilize a "Gatekeeper" state-lock pattern to ensure atomic execution of physics events, preventing frame-rate "spikes" during object destruction.
 
-## 📝 Roadmap
-The following tasks are scheduled to further harden the project and align it with 2026 professional VR standards:
-
-* Decoupled Gameplay Architecture: Replace legacy SendMessage patterns with a clean, Interface-based approach.
-* Data-Driven Socket Filtering: Implemente a ScriptableObject-based "Key & Lock" system.
-* Lifecycle-Safe Event Management: Utilized OnEnable and OnDisable for all XR Interaction events.
-* Adaptive Probe Volumes (APV): Transition the manual "Light Probe Group" grid to Unity 6’s APV system for more accurate, automated lighting in interior spaces.
-* XRI 3.4.0 Datum Migration: Refactor the current local affordances into a centralized Affordance Theme Datum (ScriptableObject) system for global audio/visual consistency.
-* Modern Input Reader Pattern: Update SetTurnTypeFromPlayerPref.cs and locomotion controllers to use the new XRI Input Reader pattern, removing direct dependencies on Action Maps.
-* State Machine for Mission Logic: Move the "Ship Repair" sequence from Timeline-based triggers to a robust State Machine to ensure the game data remains the "Source of Truth" during cutscenes.
+2. Lighting & Rendering (Unity 6 / URP) 💡
+   * Adaptive Probe Volumes (APV): Leveraged Unity 6’s APV system with optimized subdivision mapping. High-density (3m) sampling for the cockpit interior ensures accurate light-wrapping on the player's hands and tools.
+   * Box-Projected Reflections: Corrected parallax sliding in the cockpit by anchoring reflections to the physical ship geometry, providing a "grounded" sense of presence in VR.
+   * Shadow Atlas Optimization: Strategically balanced "Mixed" vs. "Baked" lighting to resolve Shadow Map overflows, maintaining sharp 1:1 shadows on the Quest 3 at 90Hz.
+  
+3. Professional Audio & UI Systems 🔊
+   * Distributed Audio: Abandoned central managers for a localized Emitter Pattern, ensuring 100% HRTF spatial accuracy for every tool and engine component.
+   * Unidirectional Data Flow: UI settings (Locomotion, Comfort, Audio) follow a strict UI → ScriptableObject → Logic flow, ensuring persistence and decoupling from scene-specific objects.
+  
+## 📝 Future Roadmap
+* Scrap Collection Loop: Implementing a "Socket-to-Currency" progression system.
+* XRI 3.4.0 Datum Migration: Transitioning to centralized Affordance Theme Datums for global visual consistency.
+* Modern Input Reader Pattern: Refactoring locomotion to the latest XRI Input Reader abstraction.
 
 ## 🤝 Acknowledgments
-Base Concept: Inspired by Valem's "Let's make a VR game".
-
-Architectural Philosophy: Heavily influenced by the decoupled coding patterns found in CodeMonkey’s "Kitchen Chaos".
+* Base Concept: Inspired by Valem's "Let's make a VR game".
+* Architectural Philosophy: Heavily influenced by the decoupled coding patterns found in CodeMonkey’s "Kitchen Chaos".
 
 ## ⚙️ Stack
-* Engine: Unity 6.3 (6000.0.35f1)
-* Toolkit: XR Interaction Toolkit 3.3.1
+* Engine: Unity 6 (6000.0.35f1 LTS)
+* Toolkit: XR Interaction Toolkit (XRI) 3.3.1
+* Pipeline: Universal Render Pipeline (URP)
 * Platform: Meta Quest 2 / 3 / Pro (OpenXR)
